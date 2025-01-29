@@ -1,0 +1,74 @@
+
+###  Register 
+POST http://localhost:4000/api/user/register 
+Host: localhost:4000
+Content-Type: application/json
+
+{
+    "name":"Husnulmab1",
+    "email":"husnulmab1@gmail.com",
+    "password":"husnulmab1@123"
+}
+### Verify
+
+GET http://localhost:4000/api/user/verify 
+Host: localhost:4000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3OGU4NDY0NmEwMTU5YmY3ZDQ0ZDYzZSIsIm5hbWUiOiJIdXNudWxtYWIxIiwiZW1haWwiOiJodXNudWxtYWIxQGdtYWlsLmNvbSIsImlhdCI6MTczNzM5MzI4MiwiZXhwIjoxNzM3Mzk2ODgyfQ.ZxwALzLzM1_6R2z4LBdNpGX7d6wuw-hVlHjimEMr59c
+### Login
+
+POST http://localhost:4000/api/user/login HTTP/1.1
+Host: localhost:4000
+Content-Type: application/json
+
+{
+"email": "husnulmab1@gmail.com",
+"password": "husnulmab1@123"
+}
+
+### Admin verification
+
+POST http://localhost:4000/api/user/admin HTTP/1.1
+Host: localhost:4000
+Content-Type: application/json
+
+{
+  "email":"admin@fyp.com",
+  "password":"admin123"
+
+}
+
+#### get all users
+GET http://localhost:4000/api/user/
+
+
+#### get user by id
+GET http://localhost:4000/api/user/678904eea4615d53f0810a9d
+
+
+### Product list
+
+GET http://localhost:4000/api/product/list
+
+### update
+
+PUT http://localhost:4000/api/user/678904eea4615d53f0810a9d
+Content-Type: application/json
+
+{
+    "name": "Haider1",
+    "email": "haider1@gmail.com"
+}
+
+### 
+DELETE http://localhost:4000/api/user/678904eea4615d53f0810a9d
+Content-Type: application/json
+
+
+
+
+
+
+
+
+
+
