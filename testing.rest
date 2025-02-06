@@ -16,14 +16,14 @@ Host: localhost:4000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3OGU4NDY0NmEwMTU5YmY3ZDQ0ZDYzZSIsIm5hbWUiOiJIdXNudWxtYWIxIiwiZW1haWwiOiJodXNudWxtYWIxQGdtYWlsLmNvbSIsImlhdCI6MTczNzM5MzI4MiwiZXhwIjoxNzM3Mzk2ODgyfQ.ZxwALzLzM1_6R2z4LBdNpGX7d6wuw-hVlHjimEMr59c
 ### Login
 
-POST http://localhost:4000/api/user/login HTTP/1.1
-Host: localhost:4000
-Content-Type: application/json
+  POST http://localhost:4000/api/user/login HTTP/1.1
+  Host: localhost:4000
+  Content-Type: application/json
 
-{
-"email": "husnulmab1@gmail.com",
-"password": "husnulmab1@123"
-}
+  {
+  "email": "husnulmab1@gmail.com",
+  "password": "husnulmab1@123"
+  }
 
 ### Admin verification
 
@@ -63,7 +63,21 @@ Content-Type: application/json
 DELETE http://localhost:4000/api/user/678904eea4615d53f0810a9d
 Content-Type: application/json
 
+###
+GET https://final-year-project-ten-eta.vercel.app/api/user/verify
+Host: final-year-project-ten-eta.vercel.app
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3OGU4NDY0NmEwMTU5YmY3ZDQ0ZDYzZSIsIm5hbWUiOiJIdXNudWxtYWIxIiwiZW1haWwiOiJodXNudWxtYWIxQGdtYWlsLmNvbSIsImlhdCI6MTczODc3MDY2MywiZXhwIjoxNzM4Nzc0MjYzfQ.mICBfKff9y-XD_MgsyhaL89HeWV97ewhSjphX1ke7Bk
 
+
+###
+POST https://final-year-project-ten-eta.vercel.app/api/user/login HTTP/1.1
+Host: final-year-project-ten-eta.vercel.app
+Content-Type: application/json
+
+{
+  "email": "husnulmab1@gmail.com",
+  "password": "husnulmab1@123"
+}
 
 
 
