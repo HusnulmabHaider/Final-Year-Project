@@ -79,14 +79,6 @@ Content-Type: application/json
   "password": "husnulmab@123"
 }
 
-POST https://final-year-project-ten-eta.vercel.app/api/user/login HTTP/1.1
-Host: final-year-project-ten-eta.vercel.app
-Content-Type: application/json
-
-{
-  "email": "husnulmab2gmail.com",
-  "password": "husnulmab2"
-}
 
 
 
