@@ -3,16 +3,16 @@ import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken';
 import userModel from "../models/userModel.js";
 
-// Create token with user info (id, name, email)
+//token with user info (id, name, email)
 const createToken = (user) => {
     return jwt.sign(
-        { id: user._id, name: user.name, email: user.email },  // Include id, name, and email in token payload
+        { id: user._id, name: user.name, email: user.email }, 
         process.env.JWT_SECRET,
-        { expiresIn: '1h' }  // Optional: Set expiry for token (1 hour in this case)
+        { expiresIn: '1h' }  // Set expiry for token 
     );
 };
 
-// Route for user login
+//  user login
 const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -38,7 +38,7 @@ const loginUser = async (req, res) => {
     }
 };
 
-// Route for user register
+//  user register
 const registerUser = async (req, res) => {
     try {
         const { name, email, password } = req.body;
@@ -76,7 +76,7 @@ const registerUser = async (req, res) => {
     }
 };
 
-// Route for admin login
+//  admin login
 const adminLogin = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -95,7 +95,7 @@ const adminLogin = async (req, res) => {
 };
 
 
-// Route to fetch all users
+//  fetch all users
 const getAllUsers = async (req, res) => {
     try {
         const users = await userModel.find({}, '-password'); // Exclude password field
@@ -106,7 +106,7 @@ const getAllUsers = async (req, res) => {
     }
 };
 
-// Route to fetch a single user by ID
+// fetch a single user by ID
 const getUserById = async (req, res) => {
     try {
         const { id } = req.params;
@@ -123,13 +123,13 @@ const getUserById = async (req, res) => {
     }
 };
 
-// Route to update user data
+//  update user data
 const updateUser = async (req, res) => {
     try {
         const { id } = req.params;
         const { name, email } = req.body;
 
-        // Validate email format if it's being updated
+        // Validate email format 
         if (email && !validator.isEmail(email)) {
             return res.json({ success: false, message: "Please enter a valid email" });
         }
@@ -137,7 +137,7 @@ const updateUser = async (req, res) => {
         const updatedUser = await userModel.findByIdAndUpdate(
             id,
             { name, email },
-            { new: true, runValidators: true, select: '-password' } // Return updated user and exclude password
+            { new: true, runValidators: true, select: '-password' } // Return updated user 
         );
 
         if (!updatedUser) {
@@ -151,7 +151,7 @@ const updateUser = async (req, res) => {
     }
 };
 
-// Route to delete a user
+//  delete user route
 const deleteUser = async (req, res) => {
     try {
         const { id } = req.params;
@@ -169,7 +169,7 @@ const deleteUser = async (req, res) => {
     }
 };
 
-// verify the token
+//   token verification
 const verifyToken = (req, res, next) => {
     const token = req.headers.authorization?.split(' ')[1];
 
@@ -187,7 +187,7 @@ const verifyToken = (req, res, next) => {
     }
 };
 
-// Exporting all functions
+
 export {
     loginUser,
     registerUser,
