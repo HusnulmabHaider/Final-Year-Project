@@ -12,7 +12,7 @@ import {
 
 const userRouter = express.Router();
 
-// Static routes
+
 userRouter.post('/register', registerUser);
 userRouter.post('/login', loginUser);
 userRouter.post('/admin', adminLogin);
@@ -24,7 +24,7 @@ userRouter.get('/verify', verifyToken, (req, res) => {
     });
 });
 
-// Dynamic routes
+
 userRouter.get('/', getAllUsers);
 userRouter.get('/:id', getUserById);
 userRouter.put('/:id', updateUser);
